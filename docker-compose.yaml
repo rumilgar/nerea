@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  python:
+    build: ./api
+    container_name: python
+    volumes:
+      - ./api/code:/app
+    network_mode: "host"
+    privileged: true
+    entrypoint: ["tail", "-f", "/dev/null"]
+    devices:
+      - "/dev/snd:/dev/snd"
